@@ -1,5 +1,5 @@
 // src/index.ts
-// CREAR UN SCHEMA FAKE -----------------------
+// CREAR UN SCHEMA FAKE -------------------------
 import { createSchema } from 'graphql-yoga'
  export const schema = createSchema({
   typeDefs: /* GraphQL */ `
