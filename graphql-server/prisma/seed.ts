@@ -9,7 +9,7 @@ async function main() {
   // (Re-)Create dummy `usuario` and `mensaje` records
   await prisma.usuario.create({
     data: {
-      nombre: "Jack",
+      nombre: "Paco Jones",
       mensajes: {
         create: [
           {
