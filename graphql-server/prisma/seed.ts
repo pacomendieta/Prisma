@@ -52,7 +52,40 @@ async function main() {
       },
     },
   });
-}
+
+await prisma.usuario.create({
+    data: {
+      nombre: "Alguien",
+      mensajes: {
+        create: [
+          {
+            cuerpo: "A Note for Alguien",
+          },
+          {
+            cuerpo: "Another note for Alguien",
+          },
+        ],
+      },
+    },
+  });
+
+  await prisma.usuario.create({
+    data: {
+      nombre: "Alien",
+      mensajes: {
+        create: [
+          {
+            cuerpo: "A Note for Alien",
+          },
+          {
+            cuerpo: "Another note for Alien",
+          },
+        ],
+      },
+    },
+  });
+
+}//main
 
 main().then(() => {
   console.log("Datos alimentados en la bbdd ...");
