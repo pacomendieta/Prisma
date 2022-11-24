@@ -1,18 +1,7 @@
 // src/index.ts
 // CREAR UN SCHEMA FAKE -------------------------
 import { createSchema } from 'graphql-yoga'
- export const schema = createSchema({
-  typeDefs: /* GraphQL */ `
-    type Query {
-      hello: String
-    }
-  `,
-  resolvers: {
-    Query: {
-      hello: () => 'world'
-    }
-  }
-})
+import { schema } from './schema';
 //----------------------------------------------
 
 // --- CREAR YOGA GRAPHQL SERVER ----------------------
