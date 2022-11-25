@@ -1,0 +1,10 @@
+# src/graphql/users.query.graphql
+
+query GetUsuarios {
+  getUsuarios {
+    nombre
+    mensajes {
+      cuerpo
+    }
+  }
+}

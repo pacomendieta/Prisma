@@ -1,9 +1,6 @@
-// Modulo TS para definir y exportar tipos de datos
-export type Mensaje = {
-    cuerpo: string;
-}
+import { GetUsuariosQuery } from "./graphql/generated";
 
-export type Usuario = {
-    nombre: String,
-    mensajes: Mensaje[]
-}
+// Modulo  TS para definir y exportar tipos de datos
+export type Mensaje = GetUsuariosQuery["getUsuarios"][0]["mensajes"][0]
+
+export type Usuario = GetUsuariosQuery["getUsuarios"][0]
