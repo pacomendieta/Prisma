@@ -6,7 +6,7 @@ schema: http://localhost:4000/graphql
 # path relativo a los archivos de graphql ??
 documents: "./src/**/*.graphql"
 
-# que tiene que generar y que plugins se usan
+# que tiene que generar y que plugins se usan. generated.ts contiene los tipos a importar en types.ts
 generates: 
   ./src/graphql/generated.ts:
     plugins:
