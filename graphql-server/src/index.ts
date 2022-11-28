@@ -1,7 +1,7 @@
 // src/index.ts
 // CREAR UN SCHEMA FAKE -------------------------
 import { createSchema } from 'graphql-yoga'
-import { schema } from './schema2';
+import { schema } from './schema';
 //----------------------------------------------
 
 // --- CREAR YOGA GRAPHQL SERVER ----------------------

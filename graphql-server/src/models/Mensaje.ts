@@ -10,7 +10,7 @@ import { builder } from "../mischemabuilder";
 builder.prismaObject("Mensaje", {
   fields: (t) => ({
     id: t.exposeID("id"),
-    body: t.exposeString("cuerpo"),
+    cuerpo: t.exposeString("cuerpo"),
     createdAt: t.expose("createdAt", {
       type: "Date",
     }),

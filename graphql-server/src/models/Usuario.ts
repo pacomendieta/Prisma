@@ -23,7 +23,7 @@ type User {
   }
 */
 //-------definir las queries (Type Query de la parte TYPEDEF) -----------------
-builder.queryField("usuarios", (t) =>
+builder.queryField("getUsuarios", (t) =>
   // 2
   t.prismaField({
     // 3
