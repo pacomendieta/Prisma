@@ -30,7 +30,7 @@ builder.queryField("getUsuarios", (t) =>
     type: ["Usuario"],
     // 4
     resolve: async (query, root, args, ctx, info) => {
-      return prisma.usuario.findMany({ ...query });
+      return prisma.usuario.findMany({  });
     },
   })
 );

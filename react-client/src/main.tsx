@@ -4,8 +4,9 @@ import App from './App'
 import './index.css'
 import { createClient, Provider } from 'urql'
 
+
 const client = createClient({
-  url: import.meta.env.VITE_API_URL || 'http//localhost:4000/graphql'
+  url: import.meta.env.VITE_API_URL || 'http://localhost:4000/graphql'
 })
 
 console.log("url:", import.meta.env.VITE_API_URL || 'http//localhost:4000/graphql')
