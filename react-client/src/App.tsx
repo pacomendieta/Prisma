@@ -7,24 +7,17 @@ import { GetUsuariosDocument} from './graphql/generated'
 
 function App() {
 
-  const usuarios: Usuario[] = [{
-    nombre: 'Prisma Fan',
-    mensajes: [{
-      cuerpo: 'Prisma rocks!!'
-    }, {
-      cuerpo: 'Did I mention I love Prisma?'
-    }]
-  }]
 
-  const [results] = useQuery({query:GetUsuariosDocument})
+  const results = useQuery({query:GetUsuariosDocument})
+  const [usuarios]=results
   console.log("GetUsuariosDocument:", GetUsuariosDocument)
-  console.log("RESULTS:", results)
+  console.log("RESULTS:", usuarios)
 
   return (
-    <div className="bg-zinc-800 flex-col h-screen w-full flex items-center justify-center p-4 gap-y-12 overflow-scroll">
+    <div className="bg-zinc-800 flex-col  w-full flex items-center justify-center p-4 gap-y-12 overflow-scroll">
       <h2 className="text-4xl text-yellow-500">Application prisma-graphql/react-client</h2>
       {
-        results.data?.getUsuarios.map( (user,i)=>
+        usuarios.data?.getUsuarios.map( (user,i)=>
           <UserDisplay usuario={user} key={i}></UserDisplay>
         )
       }
