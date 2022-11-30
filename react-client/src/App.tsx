@@ -9,15 +9,18 @@ function App() {
 
 
   const [usuarios]= useQuery({query:GetUsuariosDocument})
-  const [mensajes]= useQuery( {query:`
-  query GetUsuarios4 {
-    getMensajesUsuario(userId:13) {
+  const [mensajes]= useQuery( {
+  query:
+  `query getMensajesUsuario($id: Int) {
+    getMensajesUsuario(id: $id) {
       id  
       cuerpo
       userId
     }
   }
-  `})
+  `,
+  variables:{ id: 12 }
+})
   console.log("Mensajes: ", mensajes.data)
 
   return (

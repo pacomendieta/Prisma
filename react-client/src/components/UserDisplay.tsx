@@ -17,7 +17,7 @@ function UserDisplay(  {usuario}:Props ){
             </p>
         </div>
         <div>
-+            {usuario.mensajes.map((message, i) => <MessageDisplay key={i} index={i} mensaje={message} />)}
++            {usuario.mensajes?.map((message, i) => <MessageDisplay key={i} index={i} mensaje={message} />)}
 +       </div>
     </div>
     )

@@ -35,10 +35,10 @@ builder.queryField("getMensajesUsuario", (t) =>
     // 3
     type: ["Mensaje"],
 
-
+    args: { userId:t.arg.int({defaultValue:12})},
     // 4
     resolve: async (query, root, args, ctx, info) => {
-      console.log("ARGS:", args)
+      console.log("ARGS:", query, args, root)
       return prisma.mensaje.findMany({ where:{userId: 12 }  });
     },
   })

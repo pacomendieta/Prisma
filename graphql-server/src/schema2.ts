@@ -13,27 +13,33 @@ type Mensaje {
   cuerpo: String!
   createdAt: Date!
   id: ID!
+  usuarios:Usuario
 }
 
 type Query {
   getUsuarios: [Usuario!]!
   getMensajes: [Mensaje!]!
+  getMensajesUsuario(userId:Int=12):[Mensaje]
 }
 
 type Usuario {
   id: ID!
-  mensajes: [Mensaje!]!
+  mensajes: [Mensaje]!
   nombre: String!
 }
 `
 const resolvers = {
         Query:{
-            getUsuarios() {
+            getUsuarios(query:any) {
                 return prisma.usuario.findMany({})
             },
             getMensajes() {
-              return prisma.mensaje.findMany({})
-          }
+                return prisma.mensaje.findMany({})            
+            },
+            getMensajesUsuario( root:any, args:any  ) {
+                return prisma.mensaje.findMany({ where:{userId:12 }  })
+
+            }
 
     }  //end resolvers
 
