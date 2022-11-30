@@ -19,10 +19,12 @@ export type Mensaje = {
   createdAt: Scalars['Date'];
   cuerpo: Scalars['String'];
   id: Scalars['ID'];
+  userId: Scalars['Int'];
 };
 
 export type Query = {
   __typename?: 'Query';
+  getMensajesUsuario: Array<Mensaje>;
   getUsuarios: Array<Usuario>;
 };
 
@@ -38,5 +40,11 @@ export type GetUsuariosQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetUsuariosQuery = { __typename?: 'Query', getUsuarios: Array<{ __typename?: 'Usuario', nombre: string, mensajes: Array<{ __typename?: 'Mensaje', cuerpo: string }> }> };
 
+export type GetUsuarios2QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetUsuarios2Query = { __typename?: 'Query', getUsuarios: Array<{ __typename?: 'Usuario', id: string, nombre: string }> };
+
 
 export const GetUsuariosDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetUsuarios"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getUsuarios"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"nombre"}},{"kind":"Field","name":{"kind":"Name","value":"mensajes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"cuerpo"}}]}}]}}]}}]} as unknown as DocumentNode<GetUsuariosQuery, GetUsuariosQueryVariables>;
+export const GetUsuarios2Document = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetUsuarios2"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getUsuarios"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"nombre"}}]}}]}}]} as unknown as DocumentNode<GetUsuarios2Query, GetUsuarios2QueryVariables>;

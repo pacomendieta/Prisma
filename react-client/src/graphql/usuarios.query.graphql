@@ -8,3 +8,10 @@ query GetUsuarios {
     }
   }
 }
+
+query GetUsuarios2 {
+  getUsuarios {
+    id
+    nombre
+  }
+}

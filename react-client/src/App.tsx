@@ -8,10 +8,17 @@ import { GetUsuariosDocument} from './graphql/generated'
 function App() {
 
 
-  const results = useQuery({query:GetUsuariosDocument})
-  const [usuarios]=results
-  console.log("GetUsuariosDocument:", GetUsuariosDocument)
-  console.log("RESULTS:", usuarios)
+  const [usuarios]= useQuery({query:GetUsuariosDocument})
+  const [mensajes]= useQuery( {query:`
+  query GetUsuarios4 {
+    getMensajesUsuario(userId:13) {
+      id  
+      cuerpo
+      userId
+    }
+  }
+  `})
+  console.log("Mensajes: ", mensajes.data)
 
   return (
     <div className="bg-zinc-800 flex-col  w-full flex items-center justify-center p-4 gap-y-12 overflow-scroll">

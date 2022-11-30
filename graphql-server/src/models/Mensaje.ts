@@ -6,11 +6,13 @@
 // src/models/Message.ts
 
 import { builder } from "../mischemabuilder";
+import { prisma  } from "../db"
 
 builder.prismaObject("Mensaje", {
   fields: (t) => ({
     id: t.exposeID("id"),
     cuerpo: t.exposeString("cuerpo"),
+    userId: t.exposeInt("userId"),
     createdAt: t.expose("createdAt", {
       type: "Date",
     }),
@@ -26,3 +28,18 @@ type Message {
   id: ID!
 }
 */
+
+builder.queryField("getMensajesUsuario", (t) =>
+  // 2
+  t.prismaField({
+    // 3
+    type: ["Mensaje"],
+
+
+    // 4
+    resolve: async (query, root, args, ctx, info) => {
+      console.log("ARGS:", args)
+      return prisma.mensaje.findMany({ where:{userId: 12 }  });
+    },
+  })
+);
